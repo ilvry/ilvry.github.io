@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- PERFORMANCE -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <link rel="preload" as="style" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- TITLE -->
+    <title>eye</title>
+    <style>
+    #camera-container {
+        margin: 0px auto;
+        width: 100%;
+        height: 100%;
+    }
+    #video-element {
+        width: 100%;
+        height: 100%;
+        background-color: #ddd;
+    }
+    </style>
+  </head>
+  <body>
+    <header role="banner" class="ui-section-header">
+      <div class="ui-layout-container">
+        <div class="ui-section-header__layout ui-layout-flex">
+          <!-- LOGO -->
+          <a href="index.html" role="link" aria-label="#">
+            <svg viewBox="0 0 18 18" height="18" width="18" role="img" aria-label="#">
+              <img src="https://img.icons8.com/ios-filled/50/000000/y.png"/ width="25" height="25">
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+      <!-- CAMERA -->
+      <div id="camera-container">
+        <video autoplay="true" id="video-element">
+        </video>
+      </div>
+      <script>
+      var video = document.querySelector("#video-element");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+      </script>
+<!-- EXAMPLE
+    <input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="goPython()">
+
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script>
+        function goPython(){
+            $.ajax({
+             context: document.body
+            }).done(function() {
+             alert('wow');
+             goSecond();
+            });
+        }
+        function goSecond(){
+            $.ajax({
+             context: document.body
+            }).done(function() {
+             alert('hi');
+            });
+        }
+    </script>
+-->
+    </main>
+    <footer role="contentinfo" class="ui-section-footer">
+      <div class="ui-layout-container">
+        <div class="ui-section-footer__layout ui-layout-flex">
+          <!-- COPYRIGHT -->
+          <p class="ui-section-footer--copyright ui-text-note"><small>&copy; YY</small></p>
+          <!-- MENU -->
+          <nav role="navigation" class="ui-section-footer--nav ui-section-footer--menu ui-layout-flex">
+            <a href="#" role="link" aria-label="#" class="ui-text-note"><small>Gallery</small></a>
+            <a href="#" role="link" aria-label="#" class="ui-text-note"><small>Blogs</small></a>
+            <a href="#" role="link" aria-label="#" class="ui-text-note"><small>Help</small></a>
+          </nav>
+          <!-- SOCIAL -->
+          <nav role="navigation" class="ui-section-footer--nav ui-section-footer--social ui-layout-flex">
+            <a href="https://www.instagram.com/rand_usr/" role="link" aria-label="#">
+              <svg viewBox="0 0 24 24" height="16" width="16" fill="none" stroke="#AEAEAE" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" role="img" aria-label="#">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/>
+              </svg>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
